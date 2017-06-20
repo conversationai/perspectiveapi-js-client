@@ -1,0 +1,13 @@
+{
+  "name": "perspective-node",
+  "license": "Apache-2.0",
+  "scripts": {
+    "test": "lerna run test",
+    "lint": "lerna run lint",
+    "nsp": "lerna run nsp",
+    "canary": "lerna publish --canary --exact --yes --npm-tag dev --force-publish=\"*\""
+  },
+  "devDependencies": {
+    "lerna": "^2.0.0-rc.5"
+  }
+}

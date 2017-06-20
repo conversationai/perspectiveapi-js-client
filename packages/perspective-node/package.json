@@ -1,0 +1,52 @@
+{
+  "name": "perspective-node",
+  "description": "Perspective API for Node.js",
+  "version": "0.0.0-alpha.429bfbad",
+  "main": "dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "nsp": "nsp check",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "lint": "tslint src/**/*.ts",
+    "lint:fix": "tslint src/**/*.ts --fix",
+    "compile": "rm -rf dist && tsc --sourceMap --outDir dist --declaration",
+    "compile:watch": "tsc --sourceMap --outDir dist --declaration --watch"
+  },
+  "license": "Apache-2.0",
+  "engines": {
+    "node": "6.10.3"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "<rootDir>/preprocessor.js"
+    },
+    "testMatch": [
+      "**/*.spec.(ts|js)"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/dist/"
+    ]
+  },
+  "dependencies": {
+    "@types/node": "^6.0.73",
+    "axios": "^0.16.1",
+    "striptags": "^3.0.1",
+    "tslib": "^1.7.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^19.2.3",
+    "@types/moxios": "^0.4.2",
+    "jest": "^20.0.3",
+    "moxios": "^0.4.0",
+    "nsp": "^2.6.3",
+    "tslint": "^5.3.2",
+    "tslint-immutable": "^3.4.2",
+    "typescript": "^2.3.3"
+  }
+}
