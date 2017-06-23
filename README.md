@@ -1,7 +1,7 @@
 # perspectiveapi-js-client
 
 A simple example JS/TS client library for the [Perspective API](https://www.perspectiveapi.com/).
-This client accepts text and returns some of the text's attributes.
+This client can be used to send text to the API and get back the scores for a set of model attributes.
 
 ## Usage
 
@@ -9,7 +9,7 @@ First, you'll need an API key from ConversationAI's [Perspective API](https://ww
 
 ```
 require { Client } from "perspectiveapi-js-client";
-const client = new Client(YOUR_AP_KEY);
+const client = new Client(YOUR_API_KEY);
 const results = client.getScores(text, options);
 
 ```
