@@ -28,11 +28,11 @@ const client = new Client(process.env.PERSPECTIVE_API_KEY);
 describe("API Tests", () => {
   describe("getScores", () => {
     beforeEach(() => {
-      moxios.install();
+      moxios.install(axios);
     });
 
     afterEach(() => {
-      moxios.uninstall();
+      moxios.uninstall(axios);
     });
 
     it("should remove html from comments by default", (done) => {
@@ -42,7 +42,11 @@ describe("API Tests", () => {
         const request = moxios.requests.mostRecent();
         const data = JSON.parse(request.config.data);
         expect(data.comment.text).toBe("Hello World");
-        await request.respondWith({});
+        await request.respondWith({
+          response: {
+            attributeScores: {},
+          },
+        });
         done();
       });
 
