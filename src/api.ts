@@ -152,19 +152,22 @@ export class Client {
       requestedAttributes: buildRequestedAttributes(attributes),
     };
 
-    const perspectiveApiUrl =
-    `https://commentanalyzer.googleapis.com/v1alpha1/comments:analyze?key=${this.apiKey}`;
-    const response = await fetchCommentAnalysis(requestObject, perspectiveApiUrl);
+    try {
+      const perspectiveApiUrl =
+        `https://commentanalyzer.googleapis.com/v1alpha1/comments:analyze?key=${this.apiKey}`;
+      const response = await fetchCommentAnalysis(requestObject, perspectiveApiUrl);
+      const { attributeScores } = response;
+      const scoreValues: IAttributeScores = {};
 
-    const { attributeScores } = response;
-    const scoreValues: IAttributeScores = {};
-
-    for (const attribute in attributeScores) {
-      if (attributeScores.hasOwnProperty(attribute)) {
-        scoreValues[attribute] = (parseFloat(attributeScores[attribute].summaryScore.value));
+      for (const attribute in attributeScores) {
+        if (attributeScores.hasOwnProperty(attribute)) {
+          scoreValues[attribute] = (parseFloat(attributeScores[attribute].summaryScore.value));
+        }
       }
-    }
 
-    return scoreValues;
+      return scoreValues;
+    } catch (error) {
+      throw new Error(error);
+    }
   }
 }
