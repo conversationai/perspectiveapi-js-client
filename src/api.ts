@@ -111,6 +111,14 @@ function validateText(text: string) {
     return true;
 }
 
+export interface IClientOptions {
+  attributes?: string[];
+  context?: IContext;
+  doNotStore?: boolean;
+  languages?: string[];
+  stripHtml?: boolean;
+}
+
 export class Client {
   private apiKey: string;
 
@@ -120,18 +128,14 @@ export class Client {
 
   public async getScores(
     text: string,
-    options: {attributes: string[], context?: IContext, doNotStore?: boolean, languages?: string[]}
-    = {
-      attributes: ["SPAM", "TOXICITY"],
-      doNotStore: true,
-      languages: ["en"],
-    },
+    options: IClientOptions = {},
   ) {
     const {
-      attributes,
+      attributes = ["SPAM", "TOXICITY"],
       context,
-      doNotStore,
-      languages,
+      doNotStore = true,
+      languages = ["en"],
+      stripHtml = true,
     } = options;
 
     validateText(text);
@@ -140,7 +144,7 @@ export class Client {
 
     const requestObject: IAnalyzeCommentRequest = {
       comment: {
-        text: striptags(text),
+        text: stripHtml ? striptags(text) : text,
       },
       context,
       doNotStore,

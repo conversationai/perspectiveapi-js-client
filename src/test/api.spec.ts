@@ -24,7 +24,6 @@ import {
 } from "../errors";
 
 const client = new Client(process.env.PERSPECTIVE_API_KEY);
-const DEFAULT_ATTRIBUTES = ["TOXICITY", "SPAM"];
 
 describe("API Tests", () => {
   describe("getScores", () => {
@@ -36,7 +35,7 @@ describe("API Tests", () => {
       moxios.uninstall();
     });
 
-    it("should remove html from comments", (done) => {
+    it("should remove html from comments by default", (done) => {
       expect.assertions(1);
 
       moxios.wait( async () => {
@@ -48,6 +47,24 @@ describe("API Tests", () => {
       });
 
       client.getScores("<p>Hello World</p>");
+    });
+
+    it("should not remove html when stripHtml is false", (done) => {
+      expect.assertions(1);
+
+      moxios.wait( async () => {
+        const request = moxios.requests.mostRecent();
+        const data = JSON.parse(request.config.data);
+        expect(data.comment.text).toBe("<p>Hello World</p>");
+        await request.respondWith({
+          response: {
+            attributeScores: {},
+          },
+        });
+        done();
+      });
+
+      client.getScores("<p>Hello World</p>", {stripHtml: false});
     });
 
     it("should error when comment length over 3k characters", async () => {
