@@ -133,7 +133,7 @@ describe("API Tests", () => {
           status: 200,
         });
       });
-      const data = await client.getScores("text", {attributes: DEFAULT_ATTRIBUTES});
+      const data = await client.getScores("text");
       expect(data).toMatchObject({
         SPAM: 0.1,
         TOXICITY: 0.9,
