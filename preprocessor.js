@@ -1,3 +1,4 @@
+// Teaches jest to read typescript
 const tsc = require('typescript');
 const tsConfig = require('./tsconfig.json');
 
