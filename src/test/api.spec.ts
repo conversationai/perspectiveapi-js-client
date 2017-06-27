@@ -13,13 +13,15 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
+import axios from "axios";
+// `require`, don't `import` moxios because the type definition is currently broken.
 const moxios = require("moxios");
-const {
+import {Client} from "../api";
+import {
   PerspectiveNodeAttributeInvalidError,
   PerspectiveNodeTextEmptyError,
   PerspectiveNodeTextTooLongError,
-} = require("../errors");
-const { Client } = require("../api");
+} from "../errors";
 
 const client = new Client(process.env.PERSPECTIVE_API_KEY);
 const DEFAULT_ATTRIBUTES = ["TOXICITY", "SPAM"];

@@ -13,8 +13,8 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-const axios = require("axios");
-const striptags: (a: string) => string = require("striptags");
+import axios from "axios";
+const striptags: (html: string, allowedTags?: string | string[]) => string = require("striptags");
 const {
   PerspectiveNodeAttributeInvalidError,
   PerspectiveNodeTextEmptyError,
