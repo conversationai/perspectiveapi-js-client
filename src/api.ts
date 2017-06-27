@@ -121,9 +121,12 @@ export interface IClientOptions {
 
 export class Client {
   private apiKey: string;
+  private perspectiveApiUrl: string;
 
   constructor(apiKey: string) {
     this.apiKey = apiKey;
+    this.perspectiveApiUrl =
+      `https://commentanalyzer.googleapis.com/v1alpha1/comments:analyze?key=${this.apiKey}`;
   }
 
   public async getScores(
@@ -153,9 +156,7 @@ export class Client {
     };
 
     try {
-      const perspectiveApiUrl =
-        `https://commentanalyzer.googleapis.com/v1alpha1/comments:analyze?key=${this.apiKey}`;
-      const response = await fetchCommentAnalysis(requestObject, perspectiveApiUrl);
+      const response = await fetchCommentAnalysis(requestObject, this.perspectiveApiUrl);
       const { attributeScores } = response;
       const scoreValues: IAttributeScores = {};
 
