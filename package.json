@@ -1,7 +1,7 @@
 {
-  "name": "perspective-node",
-  "description": "Perspective API for Node.js",
-  "version": "0.0.0-alpha.429bfbad",
+  "name": "perspectiveapi-js-client",
+  "description": "A Javascript client for the Perspective API",
+  "version": "1.0.0",
   "main": "dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
