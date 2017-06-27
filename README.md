@@ -11,7 +11,6 @@ First, you'll need an API key from ConversationAI's [Perspective API](https://ww
 require { Client } from "perspectiveapi-js-client";
 const client = new Client(YOUR_API_KEY);
 const results = client.getScores(text, options);
-
 ```
 
 ## Methods
@@ -34,15 +33,16 @@ Accepted keys in the options object are:
 
 Field                    | Description
 -----                    | -----------
-`context.entries`        | A list of objects providing the context for `text`.
+`context.entries`        | A list of objects providing the context for `text`. Defaults to `null`, equivalent to an empty list.
 `context.entries[].text` | The text of a context object.
 `attributes`             | An array of strings specifying the attributes to get scores for. See the [Perspective docs](https://github.com/conversationai/perspectiveapi/blob/master/api_reference.md#models) for a list of available attributes. Default: `["SPAM", "TOXICITY"]`
 `languages`              | A list of [ISO 631-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) two-letter language codes specifying the language(s) that `text` is in (for example, "en", "es", "fr", etc). Default: `["EN"]`
 `doNotStore`             | Whether the API is permitted to store `text` and `context` from this request. Default: `true`
+`stripHtml`              | A boolean specifying whether to strip html tags from `text`. Default: `true`
 
 ### Return Value
 
-A promise that rejects with a reason for the rejection, or resolves to an object of attribute scores of the shape `[attribute: string]: number`, where the number is a float between 0 and 1. Here's an example result:
+A promise that rejects with an Error object containing a `message` property specifying the error, or resolves to an object of attribute scores of the shape `[attribute: string]: number`, where the number is a float between 0 and 1. Here's an example result:
 ```
 {
   TOXICITY: 0.65,
