@@ -15,11 +15,11 @@ limitations under the License.
 */
 import axios from "axios";
 const striptags: (html: string, allowedTags?: string | string[]) => string = require("striptags");
-const {
+import {
   PerspectiveNodeAttributeInvalidError,
   PerspectiveNodeTextEmptyError,
   PerspectiveNodeTextTooLongError,
-} = require("./errors");
+} from "./errors";
 
 export interface IContext {
   entries: Array<{
