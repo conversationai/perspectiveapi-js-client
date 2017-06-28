@@ -1,0 +1,6 @@
+{
+  "extends": ["tslint:latest", "tslint-immutable"],
+  "rules": {
+    "no-var-requires": false
+  }
+}
