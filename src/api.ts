@@ -16,9 +16,9 @@ limitations under the License.
 import axios from "axios";
 const striptags: (html: string, allowedTags?: string | string[]) => string = require("striptags");
 import {
-  PerspectiveNodeAttributeInvalidError,
-  PerspectiveNodeTextEmptyError,
-  PerspectiveNodeTextTooLongError,
+  PerspectiveClientAttributeInvalidError,
+  PerspectiveClientTextEmptyError,
+  PerspectiveClientTextTooLongError,
 } from "./errors";
 
 export interface IContext {
@@ -89,11 +89,11 @@ async function fetchCommentAnalysis(
 
 function validateAttributes(atts: string[]) {
   if (!atts.length) {
-    throw new PerspectiveNodeAttributeInvalidError("must submit at least one attribute to be scored");
+    throw new PerspectiveClientAttributeInvalidError("must submit at least one attribute to be scored");
   }
   atts.forEach((attribute: string) => {
     if (attribute === "" || attribute === null || attribute === "undefined") {
-      throw new PerspectiveNodeAttributeInvalidError("invalid attribute in options: ", attribute);
+      throw new PerspectiveClientAttributeInvalidError("invalid attribute in options: ", attribute);
     }
   });
   return true;
@@ -101,11 +101,11 @@ function validateAttributes(atts: string[]) {
 
 function validateText(text: string) {
     if (text === "") {
-      throw new PerspectiveNodeTextEmptyError("comment text cannot be empty");
+      throw new PerspectiveClientTextEmptyError("comment text cannot be empty");
     }
 
     if (text.length > 3000) {
-      throw new PerspectiveNodeTextTooLongError("comment text must be fewer than 3000 characters");
+      throw new PerspectiveClientTextTooLongError("comment text must be fewer than 3000 characters");
     }
 
     return true;

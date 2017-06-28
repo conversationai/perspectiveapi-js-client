@@ -18,9 +18,9 @@ import axios from "axios";
 const moxios = require("moxios");
 import {Client} from "../api";
 import {
-  PerspectiveNodeAttributeInvalidError,
-  PerspectiveNodeTextEmptyError,
-  PerspectiveNodeTextTooLongError,
+  PerspectiveClientAttributeInvalidError,
+  PerspectiveClientTextEmptyError,
+  PerspectiveClientTextTooLongError,
 } from "../errors";
 
 const client = new Client(process.env.PERSPECTIVE_API_KEY);
@@ -77,7 +77,7 @@ describe("API Tests", () => {
       try {
         await client.getScores("C".repeat(3001));
       } catch (error) {
-        expect(error instanceof PerspectiveNodeTextTooLongError).toBe(true);
+        expect(error instanceof PerspectiveClientTextTooLongError).toBe(true);
       }
     });
 
@@ -87,7 +87,7 @@ describe("API Tests", () => {
       try {
         await client.getScores("");
       } catch (error) {
-        expect(error instanceof PerspectiveNodeTextEmptyError).toBe(true);
+        expect(error instanceof PerspectiveClientTextEmptyError).toBe(true);
       }
     });
 
@@ -97,7 +97,7 @@ describe("API Tests", () => {
       try {
         await client.getScores("text", {attributes: [""]});
       } catch (error) {
-        expect(error instanceof PerspectiveNodeAttributeInvalidError).toBe(true);
+        expect(error instanceof PerspectiveClientAttributeInvalidError).toBe(true);
       }
     });
 
@@ -107,7 +107,7 @@ describe("API Tests", () => {
       try {
         await client.getScores("text", {attributes: []});
       } catch (error) {
-        expect(error instanceof PerspectiveNodeAttributeInvalidError).toBe(true);
+        expect(error instanceof PerspectiveClientAttributeInvalidError).toBe(true);
       }
     });
 
