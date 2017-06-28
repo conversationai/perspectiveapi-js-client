@@ -3,8 +3,8 @@
   "description": "A Javascript client for the Perspective API",
   "version": "1.0.0",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com:conversationai/perspectiveapi-js-client.git"
+    "type": "git",
+    "url": "https://github.com:conversationai/perspectiveapi-js-client.git"
   },
   "main": "dist/index.js",
   "types": "./dist/index.d.ts",
@@ -35,13 +35,13 @@
     ]
   },
   "dependencies": {
-    "@types/node": "^6.0.73",
     "axios": "^0.16.2",
     "striptags": "^3.0.1"
   },
   "devDependencies": {
     "@types/jest": "^20.0.2",
     "@types/moxios": "^0.4.2",
+    "@types/node": "^6.0.73",
     "jest": "^20.0.4",
     "moxios": "^0.4.0",
     "nsp": "^2.6.3",
