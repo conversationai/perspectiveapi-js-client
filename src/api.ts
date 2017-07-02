@@ -93,7 +93,7 @@ function validateAttributes(atts: string[]) {
   }
   atts.forEach((attribute: string) => {
     if (attribute === "" || attribute === null || attribute === "undefined") {
-      throw new PerspectiveClientAttributeInvalidError("invalid attribute in options: ", attribute);
+      throw new PerspectiveClientAttributeInvalidError("invalid attribute in options: " + attribute);
     }
   });
   return true;
