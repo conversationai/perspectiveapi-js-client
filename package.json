@@ -1,5 +1,5 @@
 {
-  "name": "perspectiveapi-js-client",
+  "name": "@conversationai/perspectiveapi-js-client",
   "description": "A Javascript client for the Perspective API",
   "version": "1.0.0",
   "repository": {
