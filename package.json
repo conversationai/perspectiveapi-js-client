@@ -7,7 +7,7 @@
     "url": "https://github.com:conversationai/perspectiveapi-js-client.git"
   },
   "main": "dist/index.js",
-  "types": "./dist/index.d.ts",
+  "types": "dist/index.d.ts",
   "scripts": {
     "nsp": "nsp check",
     "test": "jest",
