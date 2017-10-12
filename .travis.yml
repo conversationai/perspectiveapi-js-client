@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+  lts/*
+cache:
+  yarn: true
+  directories:
+    - "node_modules"
+before_script:
+  - yarn add global nsp jest
+script:
+  - yarn install
+  - yarn run compile
+  - yarn run nsp
+  - yarn run test
