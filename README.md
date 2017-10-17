@@ -5,10 +5,12 @@ This client can be used to send text to the API and get back the scores for a se
 
 ## Usage
 
-First, you'll need an API key from ConversationAI's [Perspective API](https://www.perspectiveapi.com/).
+This libray is [published on npm as @conversationai/perspectiveapi-js-client](https://www.npmjs.com/package/@conversationai/perspectiveapi-js-client).
+
+To use it, you'll first need an API key from ConversationAI's [Perspective API](https://www.perspectiveapi.com/). Then you can use the library like this:
 
 ```
-const { Client } = require("perspectiveapi-js-client");
+const { Client } = require("@conversationai/perspectiveapi-js-client");
 const client = new Client(YOUR_API_KEY);
 const results = client.getScores(text, options);
 ```
