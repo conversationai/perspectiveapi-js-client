@@ -8,7 +8,7 @@ This client can be used to send text to the API and get back the scores for a se
 First, you'll need an API key from ConversationAI's [Perspective API](https://www.perspectiveapi.com/).
 
 ```
-const { Client } = require("perspectiveapi-js-client");
+const { Client } = require("@conversationai/perspectiveapi-js-client");
 const client = new Client(YOUR_API_KEY);
 const results = client.getScores(text, options);
 ```
