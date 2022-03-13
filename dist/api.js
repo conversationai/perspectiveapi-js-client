@@ -9,6 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Client = void 0;
 /*
 Copyright 2017 Google Inc.
 
@@ -25,7 +26,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 const axios_1 = require("axios");
-const striptags_1 = require("striptags");
+//import striptags from "striptags";
+const striptags = require("striptags");
 const errors_1 = require("./errors");
 function buildRequestedAttributes(attributes) {
     const attributeObject = {};
@@ -83,7 +85,7 @@ class Client {
             validateAttributes(attributes);
             const requestObject = {
                 comment: {
-                    text: stripHtml ? striptags_1.default(text) : text,
+                    text: stripHtml ? striptags(text) : text,
                 },
                 context,
                 doNotStore,

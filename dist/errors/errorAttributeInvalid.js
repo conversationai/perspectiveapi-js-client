@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.PerspectiveClientAttributeInvalidError = void 0;
 /*
 Copyright 2017 Google Inc.
 
