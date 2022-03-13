@@ -6,10 +6,15 @@
     "noImplicitAny": true,
     "noUnusedParameters": true,
     "noUnusedLocals": true,
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "skipLibCheck": true,
+    "baseUrl" : "./",
   },
   "exclude": [
     "node_modules",
-    "dist"
+    "./node_modules",
+    "./node_modules/*",
+    "./dist",
+    "./src/test"
   ]
 }

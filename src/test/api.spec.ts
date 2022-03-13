@@ -23,7 +23,7 @@ import {
   PerspectiveClientTextTooLongError,
 } from "../errors";
 
-const client = new Client(process.env.PERSPECTIVE_API_KEY);
+const client = new Client(process.env.PERSPECTIVE_API_KEY!);
 
 describe("API Tests", () => {
   describe("getScores", () => {

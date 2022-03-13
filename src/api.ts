@@ -14,7 +14,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 import axios from "axios";
-const striptags: (html: string, allowedTags?: string | string[]) => string = require("striptags");
+//import striptags from "striptags";
+const striptags = require("striptags");
 import {
   PerspectiveClientAttributeInvalidError,
   PerspectiveClientTextEmptyError,
